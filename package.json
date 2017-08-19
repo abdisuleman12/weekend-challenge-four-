@@ -1,0 +1,24 @@
+{
+  "name": "weekend-challenge-four",
+  "version": "1.0.0",
+  "description": "weekend challenge four",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdisuleman12/weekend-challenge-four-.git"
+  },
+  "author": "abdi suleman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdisuleman12/weekend-challenge-four-/issues"
+  },
+  "homepage": "https://github.com/abdisuleman12/weekend-challenge-four-#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "pg": "^7.1.2"
+  }
+}
