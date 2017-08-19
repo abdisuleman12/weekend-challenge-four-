@@ -1,9 +1,9 @@
 var app = angular.module('WeekendChallengeApp', []);
 
-//PetHotel Controller
+//Weekend Challenge Controller
  app.controller('WeekendChallangeController', function(){
     console.log('Weekend Challenge Controller loaded');
   
     var self = this; 
 
- });//End of PetHotel Controller
+ });//End of Weekend Challenge Controller
