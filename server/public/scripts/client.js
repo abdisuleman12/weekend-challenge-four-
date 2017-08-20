@@ -1,7 +1,7 @@
 var app = angular.module('WeekendChallengeApp', []);
 
 //Weekend Challenge Controller
-app.controller('WeekendChallengeController',['$http', function ($http){
+app.controller('WeekendChallengeController', ['$http', function ($http) {
     console.log('Weekend Challenge Controller loaded');
 
     var self = this;
@@ -20,4 +20,14 @@ app.controller('WeekendChallengeController',['$http', function ($http){
 
     self.getEmployees();
 
+    self.postNewEmployee = function () {
+        $http({
+            method: 'POST',
+            url: '/employee',
+            data: self.newEmployee
+        }).then(function (response) {
+            console.log(response);
+            self.getEmployees();
+        });
+    };
 }]);//End of Weekend Challenge Controller

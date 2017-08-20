@@ -11,26 +11,33 @@
 </head>
 
 <body ng-app="WeekendChallengeApp" ng-controller="WeekendChallengeController as vm">
-    <h1>weekend challenge four</h1>
-
     <div class="container">
-        <div class="form-group" class="col-md-2">
-            <label>First Name</label>
-            <input type="text" placeholder="First Name">
-            <label>Last Name</label>
-            <input type="text" placeholder="Last Name">
-            <label>ID Number</label>
-            <input type="number" placeholder="ID Number">
-            <label>Job Title</label>
-            <input type="text" placeholder="Job Title">
-            <label>Annual Salary</label>
-            <input type="number" placeholder="Annual Salary">
-            <button id="submitButton"> Submit </button>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" ng-model="vm.newEmployee.first_name">
+                <br>
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" ng-model="vm.newEmployee.last_name">
+                <br>
+                <label>Annual Salary</label>
+                <input type="number" placeholder="Annual Salary" ng-model="vm.newEmployee.annual_salary">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>ID Number</label>
+                <input type="number" placeholder="ID Number" ng-model="vm.newEmployee.id_number">
+                <br>
+                <label>Job Title</label>
+                <input type="text" placeholder="Job Title" ng-model="vm.newEmployee.job_title">
+                <br>
+
+                <button id="submitButton" ng-click="vm.postNewEmployee()"> Submit </button>
+            </div>
         </div>
-
-
-        <table>
-            <thead>
+        <tr>Employee List</tr>
+        <br></br>
+        <table class = "table table-striped">
+            <thead >
                 <th> First Name </th>
                 <th> Last Name</th>
                 <th> ID Number </th>
@@ -39,13 +46,14 @@
             </thead>
 
             <tbody id="employeeList">
-                <tr>
-                    <td> {{vm.employee[0].first_name}}</td>
-                    <td> {{vm.employee[0].last_name}} </td>
-                    <td> {{vm.employee[0].id_number}}</td>
-                    <td> {{vm.employee[0].job_title}}</td>
-                    <td> {{vm.employee[0].annual_salary}}</td>
-                    
+                <tr ng-repeat="emp in vm.employee">
+                    <td> {{emp.first_name}}</td>
+                    <td> {{emp.last_name}} </td>
+                    <td> {{emp.id_number}}</td>
+                    <td> {{emp.job_title}}</td>
+                    <td> {{emp.annual_salary}}</td>
+                </tr>
+            </tbody>
         </table>
 
     </div>
