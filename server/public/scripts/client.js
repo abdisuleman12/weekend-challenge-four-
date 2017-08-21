@@ -6,8 +6,11 @@ app.controller('WeekendChallengeController', ['$http', function ($http) {
 
     var self = this;
 
-    self.employee = [];
 
+    self.employee = [];
+    self.monthlyAvg;
+
+    var total = 0;
     self.getEmployees = function () {
         $http({
             method: 'GET',
@@ -15,8 +18,14 @@ app.controller('WeekendChallengeController', ['$http', function ($http) {
         }).then(function (response) {
             console.log(response.data)
             self.employee = response.data;
+            for (var i = 0; i < self.employee.length; i++) {
+                employeeAvg = self.employee[i].annual_salary / 12
+                total += employeeAvg;
+                self.monthlyAvg = total;
+            }
         }); // end of http
     }; // end of getEmployees
+
 
     self.getEmployees();
 
@@ -28,6 +37,8 @@ app.controller('WeekendChallengeController', ['$http', function ($http) {
         }).then(function (response) {
             console.log(response);
             self.getEmployees();
+            self.newEmployee = {};
         });
     };
+
 }]);//End of Weekend Challenge Controller
